@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bitcoin Predictor</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<h1>📊 Bitcoin Price Predictor</h1>
+
+<p>Paste your last 1440-minute data (demo version)</p>
+
+<textarea id="inputData" rows="10" cols="50"></textarea>
+
+<br>
+
+<button onclick="predict()">Predict</button>
+
+<h2 id="result"></h2>
+
+<script>
+function predict() {
+    let data = JSON.parse(document.getElementById("inputData").value);
+
+    fetch("/predict", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({data: data})
+    })
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("result").innerText =
+            "Prediction: " + data.prediction;
+    });
+}
+</script>
+
+</body>
+</html>
