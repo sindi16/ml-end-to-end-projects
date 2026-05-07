@@ -2,39 +2,39 @@
 <html>
 <head>
     <title>Bitcoin Predictor</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 
 <body>
 
-<h1>📊 Bitcoin Price Predictor</h1>
+<header>
+    <h1>₿ Crypto Predictor</h1>
 
-<p>Paste your last 1440-minute data (demo version)</p>
+    <div class="nav">
+        <a href="/">Home</a>
+        <a href="/predict">Predict</a>
+        <a href="/news">News</a>
+    </div>
+</header>
 
-<textarea id="inputData" rows="10" cols="50"></textarea>
+<div class="hero">
+    <h2>Bitcoin Price AI Predictor</h2>
+    <p>Analyze market trends using machine learning & LSTM model</p>
 
-<br>
+    <button onclick="location.href='/predict'">Start Prediction</button>
+</div>
 
-<button onclick="predict()">Predict</button>
+<div class="card">
+    <h3>📊 About this project</h3>
+    <p>
+        This is a demo AI system that predicts Bitcoin prices using historical data.
+        Built with Flask + TensorFlow + LSTM neural network.
+    </p>
+</div>
 
-<h2 id="result"></h2>
-
-<script>
-function predict() {
-    let data = JSON.parse(document.getElementById("inputData").value);
-
-    fetch("/predict", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({data: data})
-    })
-    .then(res => res.json())
-    .then(data => {
-        document.getElementById("result").innerText =
-            "Prediction: " + data.prediction;
-    });
-}
-</script>
+<footer>
+    © 2026 Crypto Predictor | Built by Sindi
+</footer>
 
 </body>
 </html>

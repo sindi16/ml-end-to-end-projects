@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predict</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Prediction</h1>
+
+    <div class="nav">
+        <a href="/">Home</a>
+        <a href="/predict">Predict</a>
+        <a href="/news">News</a>
+    </div>
+</header>
+
+<div class="hero">
+
+    <h2>📈 Bitcoin Prediction</h2>
+
+    <div class="card">
+        <form method="POST">
+            <input type="text" name="data" placeholder="Paste last 1440 minutes data...">
+            <br>
+            <button type="submit">Predict</button>
+        </form>
+
+        <h3 style="margin-top:20px;">Result:</h3>
+        <p>{{ prediction }}</p>
+    </div>
+
+</div>
+
+<footer>
+    © Crypto Predictor
+</footer>
+
+</body>
+</html>
