@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>InsightAI - Text Intelligence</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1>Understand Text Like Never Before</h1>
+        <p>Analyze any article and uncover its topic instantly using AI-powered classification.</p>
+    </div>
+
+    <!-- INPUT CARD -->
+    <form action="/predict" method="POST" class="card">
+        <textarea name="text" placeholder="Paste your article, news, or paragraph here..."></textarea>
+        <button type="submit">Analyze Text</button>
+    </form>
+
+    <!-- RESULT -->
+    {% if prediction %}
+    <div class="result">
+        <h2>Result</h2>
+        <div class="tag">{{ prediction }}</div>
+        <p>Detected category based on content analysis</p>
+    </div>
+    {% endif %}
+
+    <!-- FEATURES -->
+    <div class="features">
+        <div class="feature">
+            <h3>⚡ Instant Analysis</h3>
+            <p>Get results in seconds with optimized machine learning models.</p>
+        </div>
+
+        <div class="feature">
+            <h3>🧠 Smart Classification</h3>
+            <p>Detect topics like business, tech, sports, and more.</p>
+        </div>
+
+        <div class="feature">
+            <h3>📊 Reliable Insights</h3>
+            <p>Built using real-world news data and clustering algorithms.</p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
